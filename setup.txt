@@ -1,0 +1,24 @@
+sudo systemctl start docker
+
+sudo docker start my-oracle-db
+
+sudo docker exec -it my-oracle-db sqlplus system/parolaAiaPuternic4@XE
+
+sudo docker logs -f my-oracle-db
+
+sudo apt update && sudo apt install python3-venv -y
+
+python3 -m venv venv
+
+source venv/bin/activate
+
+pip install --upgrade pip
+
+pip install streamlit oracledb pandas plotly faker
+
+# Pt a crea scriptul de populare:
+python generator_date.py 
+
+# Pt a porni aplicatia:
+streamlit run main.py
+
